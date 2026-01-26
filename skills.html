@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habilidades - Ezequiel Atsuri</title>
+    <meta name="description" content="Habilidades técnicas de Ezequiel Atsuri en Frontend, Backend, Bases de Datos y más">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="assets/images/logo_ezequiel1.png">
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white backdrop-blur-md shadow-lg fixed w-full top-0 z-50 border-b border-blue-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="flex items-center">
+                        <img src="assets/images/logo_ezequiel1.png" alt="Ezequiel Logo" class="h-12 w-auto">
+                    </a>
+                    <div class="hidden lg:flex items-center space-x-2 bg-green-100 px-3 py-1 rounded-full">
+                        <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        <span class="text-green-700 text-sm font-medium">Disponible</span>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium">Inicio</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium">Sobre Mí</a>
+                    <a href="skills.html" class="text-blue-600 font-semibold transition-all duration-300">Habilidades</a>
+                    <a href="projects.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium">Proyectos</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium">Contacto</a>
+                </div>
+                
+                <div class="hidden lg:block">
+                    <a href="assets/doc/cv.pdf" target="_blank" class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 py-2 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg inline-block">
+                        📄 Descargar CV
+                    </a>
+                </div>
+                
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600 focus:outline-none transition-colors">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="mobile-menu" class="hidden px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-md border-t border-blue-100">
+                <a href="index.html" class="block px-3 py-3 text-gray-700 hover:text-blue-600 transition-colors font-medium rounded-lg hover:bg-blue-50">Inicio</a>
+                <a href="about.html" class="block px-3 py-3 text-gray-700 hover:text-blue-600 transition-colors font-medium rounded-lg hover:bg-blue-50">Sobre Mí</a>
+                <a href="skills.html" class="block px-3 py-3 text-blue-600 font-semibold transition-colors rounded-lg">Habilidades</a>
+                <a href="projects.html" class="block px-3 py-3 text-gray-700 hover:text-blue-600 transition-colors font-medium rounded-lg hover:bg-blue-50">Proyectos</a>
+                <a href="contact.html" class="block px-3 py-3 text-gray-700 hover:text-blue-600 transition-colors font-medium rounded-lg hover:bg-blue-50">Contacto</a>
+                <div class="px-3 py-3">
+                    <a href="assets/doc/cv.pdf" target="_blank" class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 inline-block text-center">
+                        📄 Descargar CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="h-16"></div>
+
+    <!-- Main Content -->
+    <div class="min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-cyan-500 py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-bold text-white mb-4">Mis <span class="text-cyan-300">Habilidades</span></h1>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-400 mx-auto"></div>
+            </div>
+            
+            <!-- Skills Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Frontend Development -->
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-center mb-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-white text-3xl">⚛️</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Frontend Development</h3>
+                        <p class="text-blue-100">Interfaces modernas y responsivas</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-4 py-2 rounded-full text-sm font-semibold">Next.js</span>
+                        <span class="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-4 py-2 rounded-full text-sm font-semibold">React</span>
+                        <span class="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-4 py-2 rounded-full text-sm font-semibold">TypeScript</span>
+                        <span class="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-4 py-2 rounded-full text-sm font-semibold">HTML/CSS</span>
+                        <span class="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-4 py-2 rounded-full text-sm font-semibold">Tailwind CSS</span>
+                    </div>
+                </div>
+
+                <!-- Backend Development -->
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-center mb-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-white text-3xl">🔧</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Backend Development</h3>
+                        <p class="text-blue-100">APIs robustas y escalables</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-4 py-2 rounded-full text-sm font-semibold">Spring Boot</span>
+                        <span class="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-4 py-2 rounded-full text-sm font-semibold">Laravel</span>
+                        <span class="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-4 py-2 rounded-full text-sm font-semibold">Java</span>
+                        <span class="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-4 py-2 rounded-full text-sm font-semibold">PHP</span>
+                        <span class="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-4 py-2 rounded-full text-sm font-semibold">REST APIs</span>
+                    </div>
+                </div>
+
+                <!-- Database & Tools -->
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-center mb-8">
+                        <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-white text-3xl">🗄️</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Database & Tools</h3>
+                        <p class="text-blue-100">Gestión de datos y herramientas</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-4 py-2 rounded-full text-sm font-semibold">MySQL</span>
+                        <span class="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-4 py-2 rounded-full text-sm font-semibold">Git</span>
+                        <span class="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-4 py-2 rounded-full text-sm font-semibold">Linux</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Skills Section -->
+            <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/20">
+                <h3 class="text-3xl font-bold text-white text-center mb-8">Otras Habilidades</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
+                    <div class="bg-white/10 p-4 rounded-xl text-center hover:bg-white/20 transition-all duration-300">
+                        <div class="text-2xl mb-2">📱</div>
+                        <div class="text-blue-100 text-sm font-medium">Responsive Design</div>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl text-center hover:bg-white/20 transition-all duration-300">
+                        <div class="text-2xl mb-2">🔒</div>
+                        <div class="text-blue-100 text-sm font-medium">Security</div>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl text-center hover:bg-white/20 transition-all duration-300">
+                        <div class="text-2xl mb-2">⚡</div>
+                        <div class="text-blue-100 text-sm font-medium">Performance</div>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl text-center hover:bg-white/20 transition-all duration-300">
+                        <div class="text-2xl mb-2">🤝</div>
+                        <div class="text-blue-100 text-sm font-medium">Team Work</div>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl text-center hover:bg-white/20 transition-all duration-300">
+                        <div class="text-2xl mb-2">📚</div>
+                        <div class="text-blue-100 text-sm font-medium">Learning</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white">
+        <div class="max-w-6xl mx-auto px-6 py-16">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center mr-4">
+                            <span class="text-white text-xl font-bold">E</span>
+                        </div>
+                        <h3 class="text-2xl font-bold">Ezequiel Atsuri</h3>
+                    </div>
+                    <p class="text-white-400 mb-6 leading-relaxed">
+                        Desarrollador Full Stack apasionado por crear experiencias digitales excepcionales.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/ezequielatsuri/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+                            <span class="text-sm font-bold">in</span>
+                        </a>
+                        <a href="https://x.com/ezequielatsuri" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-400 text-white rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors">
+                            <span class="text-sm font-bold">tw</span>
+                        </a>
+                        <a href="https://github.com/ezequielatsuri" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-green-500 text-white rounded-lg flex items-center justify-center hover:bg-red-600 transition-colors">
+                            <span class="text-sm font-bold">git</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">Enlaces Rápidos</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-white hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="about.html" class="text-white hover:text-white transition-colors">Sobre Mí</a></li>
+                        <li><a href="skills.html" class="text-white hover:text-white transition-colors">Habilidades</a></li>
+                        <li><a href="projects.html" class="text-white hover:text-white transition-colors">Proyectos</a></li>
+                        <li><a href="contact.html" class="text-white hover:text-white transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">© 2025 Ezequiel Atsuri. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
