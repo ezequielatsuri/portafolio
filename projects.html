@@ -7,6 +7,30 @@
     <meta name="description" content="Portafolio de proyectos de Ezequiel Atsuri">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/x-icon" href="assets/images/logo_ezequiel1.png">
+    <style>
+        body { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        .tooltip { position: relative; cursor: help; }
+        .tooltip:hover::after {
+            content: attr(data-tooltip);
+            position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.9); color: white;
+            padding: 8px 12px; border-radius: 8px;
+            font-size: 0.875rem; white-space: nowrap; z-index: 1000;
+        }
+        .tooltip:hover::before {
+            content: ''; position: absolute; bottom: 115%; left: 50%;
+            transform: translateX(-50%); border: 6px solid transparent;
+            border-top-color: rgba(0, 0, 0, 0.9); z-index: 1000;
+        }
+        
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+        
+        .description { max-height: 3em; overflow: hidden; transition: max-height 0.3s ease; }
+        .description.expanded { max-height: 500px; }
+    </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navbar -->
@@ -73,29 +97,31 @@
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Proyecto 1 -->
-                <div class="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-white/20">
+                <div class="fade-in-up bg-white/10 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-white/20">
                     <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-black bg-opacity-20"></div>
                         <!-- Carrusel Proyecto 1 -->
                         <div id="carousel-1" class="relative w-full h-full flex items-center justify-center">
-                            <button onclick="prevImage(1)" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/60 rounded-full p-1">
-                                <span class="text-2xl">&#8592;</span>
+                            <button onclick="prevImage(1)" aria-label="Imagen anterior" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white/90 rounded-full p-2 min-w-12 min-h-12 flex items-center justify-center shadow-lg">
+                                <span class="text-2xl font-bold text-gray-800">&#8592;</span>
                             </button>
-                            <img id="carousel-1-img" src="assets/images/proyecto1.1.png" alt="Proyecto 1" class="h-40 rounded-xl shadow-lg z-10 relative transition-all duration-300 object-cover max-w-[80%]">
-                            <button onclick="nextImage(1)" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/60 rounded-full p-1">
-                                <span class="text-2xl">&#8594;</span>
+                            <img id="carousel-1-img" src="assets/images/proyecto1.1.png" alt="Proyecto 1 - Imagen 1" loading="lazy" class="h-40 rounded-xl shadow-lg z-10 relative transition-all duration-300 object-cover max-w-[80%]">
+                            <button onclick="nextImage(1)" aria-label="Siguiente imagen" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white/90 rounded-full p-2 min-w-12 min-h-12 flex items-center justify-center shadow-lg">
+                                <span class="text-2xl font-bold text-gray-800">&#8594;</span>
                             </button>
+                            <div id="carousel-1-counter" class="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-semibold">1 / 3</div>
                         </div>
                     </div>
                     <div class="p-8">
                         <h3 class="text-2xl font-bold text-white mb-4">Plataforma de Servicios</h3>
-                        <p class="text-blue-100 mb-6 leading-relaxed">
+                        <div id="desc-1" class="description text-blue-50 mb-2 leading-relaxed">
                             Aplicación web para la promoción y contratación de servicios profesionales.
-                        </p>
+                        </div>
+                        <button onclick="toggleDescription(1)" class="text-cyan-300 text-sm font-semibold hover:text-cyan-400 mb-4">Ver más</button>
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-white/20 text-white text-sm rounded-full font-medium">Next.js</span>
-                            <span class="px-3 py-1 bg-white/20 text-white text-sm rounded-full font-medium">Spring Boot</span>
-                            <span class="px-3 py-1 bg-white/20 text-white text-sm rounded-full font-medium">MySQL</span>
+                            <span class="tooltip px-3 py-1 bg-white/20 text-white text-sm rounded-full font-medium" data-tooltip="Framework React para aplicaciones web">Next.js</span>
+                            <span class="tooltip px-3 py-1 bg-white/20 text-white text-sm rounded-full font-medium" data-tooltip="Framework Java para backend">Spring Boot</span>
+                            <span class="tooltip px-3 py-1 bg-white/20 text-white text-sm rounded-full font-medium" data-tooltip="Base de datos relacional">MySQL</span>
                         </div>
                         <div class="flex space-x-3">
                             <a 
@@ -116,18 +142,19 @@
                         <div class="absolute inset-0 bg-black bg-opacity-20"></div>
                         <!-- Carrusel Proyecto 2 -->
                         <div id="carousel-2" class="relative w-full h-full flex items-center justify-center">
-                            <button onclick="prevImage(2)" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/60 rounded-full p-1">
-                                <span class="text-2xl">&#8592;</span>
+                            <button onclick="prevImage(2)" aria-label="Imagen anterior" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white/90 rounded-full p-2 min-w-12 min-h-12 flex items-center justify-center shadow-lg">
+                                <span class="text-2xl font-bold text-gray-800">&#8592;</span>
                             </button>
-                            <img id="carousel-2-img" src="assets/images/proyecto2.1.png" alt="Proyecto 2" class="h-40 rounded-xl shadow-lg z-10 relative transition-all duration-300 object-cover max-w-[80%]">
-                            <button onclick="nextImage(2)" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/60 rounded-full p-1">
-                                <span class="text-2xl">&#8594;</span>
+                            <img id="carousel-2-img" src="assets/images/proyecto2.1.png" alt="Proyecto 2 - Imagen 1" class="h-40 rounded-xl shadow-lg z-10 relative transition-all duration-300 object-cover max-w-[80%]">
+                            <button onclick="nextImage(2)" aria-label="Siguiente imagen" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white/90 rounded-full p-2 min-w-12 min-h-12 flex items-center justify-center shadow-lg">
+                                <span class="text-2xl font-bold text-gray-800">&#8594;</span>
                             </button>
+                            <div id="carousel-2-counter" class="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-semibold">1 / 3</div>
                         </div>
                     </div>
                     <div class="p-8">
                         <h3 class="text-2xl font-bold text-white mb-4">Chat</h3>
-                        <p class="text-blue-100 mb-6 leading-relaxed">
+                        <p class="text-blue-50 mb-6 leading-relaxed">
                             Aplicación de chat con funcionalidades de mensajería.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
@@ -156,7 +183,7 @@
                     </div>
                     <div class="p-8">
                         <h3 class="text-2xl font-bold text-white mb-4">Gestión de Taller</h3>
-                        <p class="text-blue-100 mb-6 leading-relaxed">
+                        <p class="text-blue-50 mb-6 leading-relaxed">
                             Aplicación para la gestión completa de un taller mecánico automotriz.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
@@ -185,7 +212,7 @@
                     </div>
                     <div class="p-8">
                         <h3 class="text-2xl font-bold text-white mb-4">To-Do List</h3>
-                        <p class="text-blue-100 mb-6 leading-relaxed">
+                        <p class="text-blue-50 mb-6 leading-relaxed">
                             Aplicación de gestión de tareas con Java Empresarial, diseñada para llevar el control de las tareas individuales.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
@@ -212,18 +239,19 @@
                         <div class="absolute inset-0 bg-black bg-opacity-20"></div>
                         <!-- Carrusel Proyecto 5 -->
                         <div id="carousel-5" class="relative w-full h-full flex items-center justify-center">
-                            <button onclick="prevImage(5)" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/60 rounded-full p-1">
-                                <span class="text-2xl">&#8592;</span>
+                            <button onclick="prevImage(5)" aria-label="Imagen anterior" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white/90 rounded-full p-2 min-w-12 min-h-12 flex items-center justify-center shadow-lg">
+                                <span class="text-2xl font-bold text-gray-800">&#8592;</span>
                             </button>
-                            <img id="carousel-5-img" src="assets/images/proyecto5.1.png" alt="Proyecto 5" class="h-40 rounded-xl shadow-lg z-10 relative transition-all duration-300 object-cover max-w-[80%]">
-                            <button onclick="nextImage(5)" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/60 rounded-full p-1">
-                                <span class="text-2xl">&#8594;</span>
+                            <img id="carousel-5-img" src="assets/images/proyecto5.1.png" alt="Proyecto 5 - Imagen 1" class="h-40 rounded-xl shadow-lg z-10 relative transition-all duration-300 object-cover max-w-[80%]">
+                            <button onclick="nextImage(5)" aria-label="Siguiente imagen" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white/90 rounded-full p-2 min-w-12 min-h-12 flex items-center justify-center shadow-lg">
+                                <span class="text-2xl font-bold text-gray-800">&#8594;</span>
                             </button>
+                            <div id="carousel-5-counter" class="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-semibold">1 / 3</div>
                         </div>
                     </div>
                     <div class="p-8">
                         <h3 class="text-2xl font-bold text-white mb-4">Dashboard Dinámico</h3>
-                        <p class="text-blue-100 mb-6 leading-relaxed">
+                        <p class="text-blue-50 mb-6 leading-relaxed">
                             Dashboard interactivo con procesamiento ETL de datos desde Excel, 
                             análisis en tiempo real y visualizaciones dinámicas.
                         </p>
@@ -327,6 +355,13 @@
         </div>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="hidden fixed bottom-8 right-8 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 z-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
     <script>
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -360,17 +395,58 @@
             }
         };
 
+        function updateCarousel(projectId) {
+            const carousel = carousels[projectId];
+            const img = document.getElementById(`carousel-${projectId}-img`);
+            const counter = document.getElementById(`carousel-${projectId}-counter`);
+            
+            img.src = carousel.images[carousel.currentIndex];
+            img.alt = `Proyecto ${projectId} - Imagen ${carousel.currentIndex + 1}`;
+            counter.textContent = `${carousel.currentIndex + 1} / ${carousel.images.length}`;
+        }
+
         function prevImage(projectId) {
             const carousel = carousels[projectId];
             carousel.currentIndex = (carousel.currentIndex - 1 + carousel.images.length) % carousel.images.length;
-            document.getElementById(`carousel-${projectId}-img`).src = carousel.images[carousel.currentIndex];
+            updateCarousel(projectId);
         }
 
         function nextImage(projectId) {
             const carousel = carousels[projectId];
             carousel.currentIndex = (carousel.currentIndex + 1) % carousel.images.length;
-            document.getElementById(`carousel-${projectId}-img`).src = carousel.images[carousel.currentIndex];
+            updateCarousel(projectId);
         }
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        window.addEventListener('scroll', () => {
+            scrollToTopBtn.classList.toggle('hidden', window.scrollY <= 300);
+        });
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Toggle description function
+        function toggleDescription(id) {
+            const desc = document.getElementById(`desc-${id}`);
+            const btn = event.target;
+            if (desc.classList.contains('expanded')) {
+                desc.classList.remove('expanded');
+                btn.textContent = 'Ver más';
+            } else {
+                desc.classList.add('expanded');
+                btn.textContent = 'Ver menos';
+            }
+        }
+
+        // Scroll animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, observerOptions);
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>

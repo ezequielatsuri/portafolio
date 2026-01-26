@@ -7,6 +7,10 @@
     <meta name="description" content="Conoce más sobre Ezequiel Atsuri, Estudiante de Ingeniería en Sistemas Computacionales">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/x-icon" href="assets/images/logo_ezequiel1.png">
+    <style>
+        body { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navbar -->
@@ -79,7 +83,7 @@
                             Soy un <strong class="text-cyan-300">Estudiante de Ingeniería en Sistemas Computacionales</strong> con vocación por el desarrollo de software y el aprendizaje continuo. 
                             Me especializo en desarrollo web full-stack con un enfoque en experiencias de usuario excepcionales.
                         </p>
-                        <p class="text-lg text-blue-100 leading-relaxed mb-6">
+                        <p class="text-lg text-blue-50 leading-relaxed mb-6">
                             Me mantengo actualizado con las últimas tendencias tecnológicas a través de mi formación académica y plataformas educativas como <strong class="text-cyan-300">Platzi</strong>. 
                             Soy una persona proactiva, curiosa y comprometida con mi desarrollo profesional.
                         </p>
@@ -186,6 +190,13 @@
         </div>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="hidden fixed bottom-8 right-8 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 z-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
     <script>
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -200,6 +211,15 @@
                 mobileMenu.classList.add('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+        });
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        window.addEventListener('scroll', () => {
+            scrollToTopBtn.classList.toggle('hidden', window.scrollY <= 300);
+        });
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>

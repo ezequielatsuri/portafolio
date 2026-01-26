@@ -7,6 +7,26 @@
     <meta name="description" content="Habilidades técnicas de Ezequiel Atsuri en Frontend, Backend, Bases de Datos y más">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/x-icon" href="assets/images/logo_ezequiel1.png">
+    <style>
+        body { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        .tooltip { position: relative; cursor: help; }
+        .tooltip:hover::after {
+            content: attr(data-tooltip); position: absolute; bottom: 125%; left: 50%;
+            transform: translateX(-50%); background-color: rgba(0, 0, 0, 0.9);
+            color: white; padding: 8px 12px; border-radius: 8px;
+            font-size: 0.875rem; white-space: nowrap; z-index: 1000;
+        }
+        .tooltip:hover::before {
+            content: ''; position: absolute; bottom: 115%; left: 50%;
+            transform: translateX(-50%); border: 6px solid transparent;
+            border-top-color: rgba(0, 0, 0, 0.9); z-index: 1000;
+        }
+        
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+    </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navbar -->
@@ -202,6 +222,13 @@
         </div>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="hidden fixed bottom-8 right-8 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 z-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
     <script>
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -216,6 +243,15 @@
                 mobileMenu.classList.add('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+        });
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        window.addEventListener('scroll', () => {
+            scrollToTopBtn.classList.toggle('hidden', window.scrollY <= 300);
+        });
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
