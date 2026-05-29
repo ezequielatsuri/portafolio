@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Página no encontrada - Ezequiel Atsuri</title>
+    <meta name="description" content="Página no encontrada en el portafolio de Ezequiel Atsuri" />
+    
+    <!-- Google Fonts: Outfit and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" type="image/x-icon" href="assets/images/icono.webp">
+    
+    <!-- Prevent FOUC for Dark Mode -->
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    
+    <!-- SEO & Open Graph -->
+    <meta property="og:title" content="Ezequiel Atsuri - 404">
+    <meta property="og:description" content="Página no encontrada.">
+    <meta property="og:image" content="https://ezequielatsuri.dev/assets/images/icono.webp">
+    <meta property="og:url" content="https://ezequielatsuri.dev">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- i18n & Components -->
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/components/navbar.js"></script>
+    <script src="assets/js/components/footer.js"></script>
+</head>
+<body class="bg-gray-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 transition-colors duration-300 font-sans flex flex-col min-h-screen">
+    
+    <!-- Navbar Component -->
+    <app-navbar></app-navbar>
+
+    <!-- Spacer -->
+    <div class="h-16"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-950 dark:to-slate-900 py-20 px-6 transition-colors duration-300">
+        <div class="text-center max-w-2xl mx-auto reveal active">
+            <h1 class="text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-400 font-outfit mb-4">
+                404
+            </h1>
+            <h2 class="text-3xl font-bold text-slate-800 dark:text-white mb-6">¡Ups! Página no encontrada</h2>
+            <p class="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
+                La página que estás buscando no existe, ha sido movida o está temporalmente inaccesible.
+            </p>
+            <a href="index.html" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-8 py-3.5 rounded-xl font-semibold transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-blue-500/30">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Volver al Inicio
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer Component -->
+    <app-footer></app-footer>
+
+    <!-- Main Logic -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

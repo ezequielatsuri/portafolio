@@ -1,7 +1,13 @@
 class AppFooter extends HTMLElement {
     connectedCallback() {
         const currentYear = new Date().getFullYear();
-        
+        const descText = window.i18n ? window.i18n.get('footer_desc') : 'Desarrollador Full Stack apasionado por crear experiencias digitales excepcionales, enfocadas en rendimiento, accesibilidad y diseño moderno.';
+        const navText = window.i18n ? window.i18n.get('footer_nav') : 'Navegación';
+        const legalText = window.i18n ? window.i18n.get('footer_legal') : 'Legal';
+        const privacyText = window.i18n ? window.i18n.get('footer_privacy') : 'Política de Privacidad';
+        const rightsText = window.i18n ? window.i18n.get('footer_rights') : 'Todos los derechos reservados.';
+        const designedText = window.i18n ? window.i18n.get('footer_designed') : 'Hecho con ❤ por Ezequiel Atsuri';
+
         this.innerHTML = `
             <footer class="bg-slate-950 text-slate-400 border-t border-slate-900 py-16 transition-colors duration-300">
                 <div class="max-w-6xl mx-auto px-6">
@@ -9,11 +15,11 @@ class AppFooter extends HTMLElement {
                         <!-- Brand Section -->
                         <div class="md:col-span-6 lg:col-span-5">
                             <div class="flex items-center mb-6">
-                                <img src="assets/images/icono.png" alt="Logo Ezequiel Atsuri" class="w-10 h-10 rounded-lg mr-4 shadow-lg shadow-blue-500/20 object-contain bg-white dark:bg-slate-800 p-0.5">
+                                <img src="assets/images/icono.webp" alt="Logo Ezequiel Atsuri" loading="lazy" class="w-10 h-10 rounded-lg mr-4 shadow-lg shadow-blue-500/20 object-contain bg-white dark:bg-slate-800 p-0.5">
                                 <h3 class="text-2xl font-bold text-white font-outfit">Ezequiel Atsuri</h3>
                             </div>
-                            <p class="mb-8 leading-relaxed text-sm">
-                                Desarrollador Full Stack apasionado por crear experiencias digitales excepcionales, enfocadas en rendimiento, accesibilidad y diseño moderno.
+                            <p class="mb-8 leading-relaxed text-sm" data-i18n="footer_desc">
+                                ${descText}
                             </p>
                             <div class="flex space-x-3">
                                 <a href="https://github.com/ezequielatsuri" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="w-10 h-10 bg-slate-900 border border-slate-800 text-slate-300 rounded-lg flex items-center justify-center hover:bg-slate-800 hover:text-white hover:border-slate-700 transition-all duration-300">
@@ -30,30 +36,30 @@ class AppFooter extends HTMLElement {
 
                         <!-- Navigation Links -->
                         <div class="md:col-span-3 lg:col-span-2 lg:col-start-8">
-                            <h4 class="text-white font-semibold mb-6">Navegación</h4>
+                            <h4 class="text-white font-semibold mb-6" data-i18n="footer_nav">${navText}</h4>
                             <ul class="space-y-3 text-sm">
-                                <li><a href="index.html" class="hover:text-blue-400 transition-colors">Inicio</a></li>
-                                <li><a href="about.html" class="hover:text-blue-400 transition-colors">Sobre Mí</a></li>
-                                <li><a href="skills.html" class="hover:text-blue-400 transition-colors">Habilidades</a></li>
-                                <li><a href="projects.html" class="hover:text-blue-400 transition-colors">Proyectos</a></li>
-                                <li><a href="contact.html" class="hover:text-blue-400 transition-colors">Contacto</a></li>
+                                <li><a href="index.html" class="hover:text-blue-400 transition-colors" data-i18n="nav_home">${window.i18n ? window.i18n.get('nav_home') : 'Inicio'}</a></li>
+                                <li><a href="about.html" class="hover:text-blue-400 transition-colors" data-i18n="nav_about">${window.i18n ? window.i18n.get('nav_about') : 'Sobre Mí'}</a></li>
+                                <li><a href="skills.html" class="hover:text-blue-400 transition-colors" data-i18n="nav_skills">${window.i18n ? window.i18n.get('nav_skills') : 'Habilidades'}</a></li>
+                                <li><a href="projects.html" class="hover:text-blue-400 transition-colors" data-i18n="nav_projects">${window.i18n ? window.i18n.get('nav_projects') : 'Proyectos'}</a></li>
+                                <li><a href="contact.html" class="hover:text-blue-400 transition-colors" data-i18n="nav_contact">${window.i18n ? window.i18n.get('nav_contact') : 'Contacto'}</a></li>
                             </ul>
                         </div>
 
                         <!-- Legal Links -->
                         <div class="md:col-span-3 lg:col-span-2">
-                            <h4 class="text-white font-semibold mb-6">Legal</h4>
+                            <h4 class="text-white font-semibold mb-6" data-i18n="footer_legal">${legalText}</h4>
                             <ul class="space-y-3 text-sm">
-                                <li><a href="privacy.html" class="hover:text-blue-400 transition-colors">Política de Privacidad</a></li>
+                                <li><a href="privacy.html" class="hover:text-blue-400 transition-colors" data-i18n="footer_privacy">${privacyText}</a></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Bottom Section -->
                     <div class="border-t border-slate-800/50 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
-                        <p>© <span>${currentYear}</span> Ezequiel Atsuri. Todos los derechos reservados.</p>
-                        <p class="mt-2 md:mt-0 flex items-center">
-                            Diseñado con <span class="text-rose-500 mx-1">❤</span> por Ezequiel Atsuri
+                        <p>© <span>${currentYear}</span> Ezequiel Atsuri. <span data-i18n="footer_rights">${rightsText}</span></p>
+                        <p class="mt-2 md:mt-0 flex items-center" data-i18n="footer_designed">
+                            ${designedText}
                         </p>
                     </div>
                 </div>

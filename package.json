@@ -22,6 +22,7 @@
   "homepage": "https://github.com/ezequielatsuri/portafolio#readme",
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.3.0"
   }
 }

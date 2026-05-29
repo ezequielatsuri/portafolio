@@ -111,4 +111,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Observe all elements with fade-in-up
     document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+    // Typing Effect for Hero Section (only on index.html)
+    const typingElement = document.getElementById('typing-text');
+    if (typingElement) {
+        const words = ['Frontend', 'Backend', 'Full Stack'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50;
+            } else {
+                typingElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 150;
+            }
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                isDeleting = true;
+                typingSpeed = 2000; // Pause at end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typingSpeed = 500; // Pause before new word
+            }
+
+            setTimeout(type, typingSpeed);
+        }
+
+        setTimeout(type, 1000); // Start after 1 second
+    }
 });

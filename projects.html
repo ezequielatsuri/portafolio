@@ -13,7 +13,7 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="icon" type="image/x-icon" href="assets/images/icono.png">
+    <link rel="icon" type="image/x-icon" href="assets/images/icono.webp">
     
     <style>
         .description { max-height: 3em; overflow: hidden; transition: max-height 0.3s ease; }
@@ -28,9 +28,19 @@
             document.documentElement.classList.remove('dark');
         }
     </script>
-    <!-- Components -->
+    <!-- i18n & Components -->
+    <script src="assets/js/i18n.js"></script>
     <script src="assets/js/components/navbar.js"></script>
     <script src="assets/js/components/footer.js"></script>
+
+    <!-- SEO & Open Graph -->
+    <meta property="og:title" content="Ezequiel Atsuri - Desarrollador Full Stack">
+    <meta property="og:description" content="Portafolio de Ezequiel Atsuri, Desarrollador Full Stack especializado en rendimiento, accesibilidad y diseño moderno.">
+    <meta property="og:image" content="https://ezequielatsuri.dev/assets/images/icono.webp">
+    <meta property="og:url" content="https://ezequielatsuri.dev">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
 </head>
 <body class="bg-gray-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 transition-colors duration-300 font-sans">
     
@@ -48,9 +58,17 @@
                 <div class="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-500 rounded-full mx-auto"></div>
             </div>
             
+            
+            <!-- Project Filters -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12 fade-in-up" style="transition-delay: 100ms;" id="project-filters">
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold bg-blue-600 text-white shadow-lg shadow-blue-500/30 transition-all border border-blue-600" data-filter="all">Todos</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700 shadow-sm" data-filter="fullstack">Full Stack</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700 shadow-sm" data-filter="backend">Backend</button>
+            </div>
+            
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Proyecto 1 -->
-                <div class="fade-in-up flex flex-col bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-blue-500/10 hover:border-blue-300 dark:hover:border-blue-500/50 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group">
+                <div data-category="fullstack" class="project-card fade-in-up flex flex-col bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-blue-500/10 hover:border-blue-300 dark:hover:border-blue-500/50 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group">
                     <div class="h-56 bg-gradient-to-br from-blue-500 to-indigo-600 dark:from-blue-900 dark:to-indigo-900 relative overflow-hidden flex items-center justify-center p-6">
                         <div class="absolute inset-0 bg-black/10 dark:bg-black/30"></div>
                         <!-- Carrusel Proyecto 1 -->
@@ -58,7 +76,7 @@
                             <button onclick="prevImage(1)" aria-label="Imagen anterior" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white text-slate-800 rounded-full p-2 w-10 h-10 flex items-center justify-center shadow-lg opacity-0 group-hover/carousel:opacity-100 transition-opacity">
                                 <span class="font-bold">&larr;</span>
                             </button>
-                            <img id="carousel-1-img" src="assets/images/proyecto1.1.png" alt="Proyecto 1 - Imagen 1" loading="lazy" class="h-44 rounded-xl shadow-xl z-10 relative object-cover max-w-[85%] border border-white/20">
+                            <img id="carousel-1-img" src="assets/images/proyecto1.1.webp" alt="Proyecto 1 - Imagen 1" loading="lazy" class="h-44 rounded-xl shadow-xl z-10 relative object-cover max-w-[85%] border border-white/20">
                             <button onclick="nextImage(1)" aria-label="Siguiente imagen" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white text-slate-800 rounded-full p-2 w-10 h-10 flex items-center justify-center shadow-lg opacity-0 group-hover/carousel:opacity-100 transition-opacity">
                                 <span class="font-bold">&rarr;</span>
                             </button>
@@ -86,7 +104,7 @@
                 </div>
 
                 <!-- Proyecto 2 -->
-                <div class="fade-in-up flex flex-col bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300 dark:hover:border-indigo-500/50 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group" style="transition-delay: 100ms;">
+                <div data-category="fullstack" class="project-card fade-in-up flex flex-col bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300 dark:hover:border-indigo-500/50 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group" style="transition-delay: 100ms;">
                     <div class="h-56 bg-gradient-to-br from-indigo-500 to-purple-600 dark:from-indigo-900 dark:to-purple-900 relative overflow-hidden flex items-center justify-center p-6">
                         <div class="absolute inset-0 bg-black/10 dark:bg-black/30"></div>
                         <!-- Carrusel Proyecto 2 -->
@@ -94,7 +112,7 @@
                             <button onclick="prevImage(2)" aria-label="Imagen anterior" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white text-slate-800 rounded-full p-2 w-10 h-10 flex items-center justify-center shadow-lg opacity-0 group-hover/carousel:opacity-100 transition-opacity">
                                 <span class="font-bold">&larr;</span>
                             </button>
-                            <img id="carousel-2-img" src="assets/images/proyecto2.1.png" alt="Proyecto 2 - Imagen 1" loading="lazy" class="h-44 rounded-xl shadow-xl z-10 relative object-cover max-w-[85%] border border-white/20">
+                            <img id="carousel-2-img" src="assets/images/proyecto2.1.webp" alt="Proyecto 2 - Imagen 1" loading="lazy" class="h-44 rounded-xl shadow-xl z-10 relative object-cover max-w-[85%] border border-white/20">
                             <button onclick="nextImage(2)" aria-label="Siguiente imagen" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white text-slate-800 rounded-full p-2 w-10 h-10 flex items-center justify-center shadow-lg opacity-0 group-hover/carousel:opacity-100 transition-opacity">
                                 <span class="font-bold">&rarr;</span>
                             </button>
@@ -121,7 +139,7 @@
                 </div>
 
                 <!-- Proyecto 3 -->
-                <div class="fade-in-up flex flex-col bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-300 dark:hover:border-purple-500/50 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group" style="transition-delay: 200ms;">
+                <div data-category="fullstack" class="project-card fade-in-up flex flex-col bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-purple-500/10 hover:border-purple-300 dark:hover:border-purple-500/50 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group" style="transition-delay: 200ms;">
                     <div class="h-56 bg-gradient-to-br from-purple-500 to-pink-600 dark:from-purple-900 dark:to-pink-900 relative overflow-hidden flex items-center justify-center p-6">
                         <div class="absolute inset-0 bg-black/10 dark:bg-black/30"></div>
                         <span class="text-white text-6xl font-bold relative z-10 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">🔧</span>
@@ -146,7 +164,7 @@
                 </div>
 
                 <!-- Proyecto 4 -->
-                <div class="fade-in-up flex flex-col bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-rose-500/10 hover:border-rose-300 dark:hover:border-rose-500/50 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group" style="transition-delay: 300ms;">
+                <div data-category="backend" class="project-card fade-in-up flex flex-col bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-rose-500/10 hover:border-rose-300 dark:hover:border-rose-500/50 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group" style="transition-delay: 300ms;">
                     <div class="h-56 bg-gradient-to-br from-rose-500 to-orange-600 dark:from-rose-900 dark:to-orange-900 relative overflow-hidden flex items-center justify-center p-6">
                         <div class="absolute inset-0 bg-black/10 dark:bg-black/30"></div>
                         <span class="text-white text-6xl font-bold relative z-10 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">📋</span>
@@ -171,7 +189,7 @@
                 </div>
 
                 <!-- Proyecto 5 -->
-                <div class="fade-in-up flex flex-col bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-yellow-500/10 hover:border-yellow-400 dark:hover:border-yellow-500/50 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group" style="transition-delay: 400ms;">
+                <div data-category="backend" class="project-card fade-in-up flex flex-col bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-yellow-500/10 hover:border-yellow-400 dark:hover:border-yellow-500/50 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group" style="transition-delay: 400ms;">
                     <div class="h-56 bg-gradient-to-br from-yellow-400 to-orange-500 dark:from-yellow-800 dark:to-orange-800 relative overflow-hidden flex items-center justify-center p-6">
                         <div class="absolute inset-0 bg-black/10 dark:bg-black/30"></div>
                         <!-- Carrusel Proyecto 5 -->
@@ -179,7 +197,7 @@
                             <button onclick="prevImage(5)" aria-label="Imagen anterior" class="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white text-slate-800 rounded-full p-2 w-10 h-10 flex items-center justify-center shadow-lg opacity-0 group-hover/carousel:opacity-100 transition-opacity">
                                 <span class="font-bold">&larr;</span>
                             </button>
-                            <img id="carousel-5-img" src="assets/images/proyecto5.1.png" alt="Proyecto 5 - Imagen 1" loading="lazy" class="h-44 rounded-xl shadow-xl z-10 relative object-cover max-w-[85%] border border-white/20">
+                            <img id="carousel-5-img" src="assets/images/proyecto5.1.webp" alt="Proyecto 5 - Imagen 1" loading="lazy" class="h-44 rounded-xl shadow-xl z-10 relative object-cover max-w-[85%] border border-white/20">
                             <button onclick="nextImage(5)" aria-label="Siguiente imagen" class="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white text-slate-800 rounded-full p-2 w-10 h-10 flex items-center justify-center shadow-lg opacity-0 group-hover/carousel:opacity-100 transition-opacity">
                                 <span class="font-bold">&rarr;</span>
                             </button>
@@ -206,7 +224,7 @@
                 </div>
 
                 <!-- Proyecto 6 -->
-                <div class="fade-in-up flex flex-col bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-teal-500/10 hover:border-teal-300 dark:hover:border-teal-500/50 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group" style="transition-delay: 500ms;">
+                <div data-category="backend" class="project-card fade-in-up flex flex-col bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:shadow-teal-500/10 hover:border-teal-300 dark:hover:border-teal-500/50 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group" style="transition-delay: 500ms;">
                     <div class="h-56 bg-gradient-to-br from-teal-400 to-emerald-600 dark:from-teal-800 dark:to-emerald-900 relative overflow-hidden flex items-center justify-center p-6">
                         <div class="absolute inset-0 bg-black/10 dark:bg-black/30"></div>
                         <span class="text-white text-6xl font-bold relative z-10 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">🏥</span>
@@ -250,15 +268,15 @@
         // Image carousel logic
         const carousels = {
             1: {
-                images: ['assets/images/proyecto1.1.png', 'assets/images/proyecto1.2.png', 'assets/images/proyecto1.3.png'],
+                images: ['assets/images/proyecto1.1.webp', 'assets/images/proyecto1.2.webp', 'assets/images/proyecto1.3.webp'],
                 currentIndex: 0
             },
             2: {
-                images: ['assets/images/proyecto2.1.png', 'assets/images/proyecto2.2.png', 'assets/images/proyecto2.3.png'],
+                images: ['assets/images/proyecto2.1.webp', 'assets/images/proyecto2.2.webp', 'assets/images/proyecto2.3.webp'],
                 currentIndex: 0
             },
             5: {
-                images: ['assets/images/proyecto5.1.png', 'assets/images/proyecto5.2.png', 'assets/images/proyecto5.3.png'],
+                images: ['assets/images/proyecto5.1.webp', 'assets/images/proyecto5.2.webp', 'assets/images/proyecto5.3.webp'],
                 currentIndex: 0
             }
         };
@@ -298,5 +316,39 @@
             }
         }
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active from all
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-blue-600', 'text-white', 'shadow-blue-500/30', 'border-blue-600');
+                        b.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-700');
+                    });
+                    
+                    // Add active to clicked
+                    btn.classList.add('bg-blue-600', 'text-white', 'shadow-blue-500/30', 'border-blue-600');
+                    btn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-700');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'flex';
+                            setTimeout(() => card.style.opacity = '1', 50);
+                        } else {
+                            card.style.opacity = '0';
+                            setTimeout(() => card.style.display = 'none', 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>

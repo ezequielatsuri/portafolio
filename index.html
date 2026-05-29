@@ -14,7 +14,7 @@
     <!-- Custom CSS (Tailwind Output) -->
     <link rel="stylesheet" href="assets/css/style.css" />
     
-    <link rel="icon" type="image/x-icon" href="assets/images/icono.png">
+    <link rel="icon" type="image/x-icon" href="assets/images/icono.webp">
     
     <!-- Prevent FOUC for Dark Mode -->
     <script>
@@ -24,9 +24,19 @@
             document.documentElement.classList.remove('dark');
         }
     </script>
-    <!-- Components -->
+    <!-- i18n & Components -->
+    <script src="assets/js/i18n.js"></script>
     <script src="assets/js/components/navbar.js"></script>
     <script src="assets/js/components/footer.js"></script>
+
+    <!-- SEO & Open Graph -->
+    <meta property="og:title" content="Ezequiel Atsuri - Desarrollador Full Stack">
+    <meta property="og:description" content="Portafolio de Ezequiel Atsuri, Desarrollador Full Stack especializado en rendimiento, accesibilidad y diseño moderno.">
+    <meta property="og:image" content="https://ezequielatsuri.dev/assets/images/icono.webp">
+    <meta property="og:url" content="https://ezequielatsuri.dev">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
 </head>
 <body class="bg-gray-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 transition-colors duration-300 font-sans">
     
@@ -58,8 +68,8 @@
                                 Hola, soy <br/>
                                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300 drop-shadow-sm">Ezequiel Atsuri</span>
                             </h1>
-                            <h2 class="text-2xl lg:text-3xl text-blue-100/90 font-medium">
-                                Desarrollador Full Stack
+                            <h2 class="text-2xl lg:text-3xl text-blue-100/90 font-medium h-10">
+                                Desarrollador <span id="typing-text" class="text-blue-400 font-bold"></span><span class="animate-pulse">|</span>
                             </h2>
                             <p class="text-lg text-blue-100/70 leading-relaxed max-w-lg">
                                 Transformo ideas en experiencias digitales excepcionales. Especializado en crear soluciones web innovadoras que conectan tecnología con creatividad.
