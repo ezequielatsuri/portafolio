@@ -1,0 +1,27 @@
+{
+  "name": "portafolio_ezequiel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./assets/css/style.css --watch",
+    "build:css:prod": "tailwindcss -i ./src/input.css -o ./assets/css/style.css --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ezequielatsuri/portafolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ezequielatsuri/portafolio/issues"
+  },
+  "homepage": "https://github.com/ezequielatsuri/portafolio#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.0",
+    "tailwindcss": "^4.3.0"
+  }
+}
